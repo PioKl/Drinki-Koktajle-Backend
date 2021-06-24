@@ -1,0 +1,85 @@
+{
+  "kind": "collectionType",
+  "collectionName": "drinks",
+  "info": {
+    "name": "Drinks",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": false
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "drinks"
+    },
+    "ingredient1": {
+      "type": "string",
+      "required": false
+    },
+    "ingredient2": {
+      "type": "string",
+      "required": false
+    },
+    "ingredient3": {
+      "type": "string"
+    },
+    "ingredient4": {
+      "type": "string"
+    },
+    "ingredient5": {
+      "type": "string"
+    },
+    "ingredient6": {
+      "type": "string"
+    },
+    "measure1": {
+      "type": "string"
+    },
+    "measure2": {
+      "type": "string"
+    },
+    "measure3": {
+      "type": "string"
+    },
+    "measure4": {
+      "type": "string"
+    },
+    "measure5": {
+      "type": "string"
+    },
+    "measure6": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "video": {
+      "type": "string"
+    }
+  }
+}
