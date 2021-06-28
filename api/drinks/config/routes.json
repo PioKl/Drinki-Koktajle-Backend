@@ -10,6 +10,14 @@
     },
     {
       "method": "GET",
+      "path": "/drinks/me",
+      "handler": "drinks.me",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/drinks/count",
       "handler": "drinks.count",
       "config": {
