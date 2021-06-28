@@ -57,26 +57,16 @@ module.exports = {
       async delete(ctx) {
         const { id } = ctx.params;
     
-        let entity;
-    
         const [drinks] = await strapi.services.drinks.find({
           id: ctx.params.id,
-          'user.id': ctx.state.user.id,
+          "user.id": ctx.state.user.id,
         });
     
         if (!drinks) {
           return ctx.unauthorized(`You can't update this entry`);
         }
     
-        if (ctx.is('multipart')) {
-          const { data, files } = parseMultipartData(ctx);
-          entity = await strapi.services.drinks.update({ id }, data, {
-            files,
-          });
-        } else {
-          entity = await strapi.services.drinks.update({ id }, ctx.request.body);
-        }
-    
+        const entity = await strapi.services.drinks.delete({ id });
         return sanitizeEntity(entity, { model: strapi.models.drinks });
       },
 
